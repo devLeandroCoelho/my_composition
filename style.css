@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --ft-all: 'Roboto', sans-serif;
+  --bg-body: #a2ade7;
+  --bg-main: white;
+  --clr-span: darkblue;
+  --btn-color: rgba(43, 28, 28, 0.802);
+  --btn-hover:  #a2ade7;
+  --clr-h1: #333;
+  --clr-h2: darkblue;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--ft-all);
+  background-color: var(--bg-body) 
+}
+
+body, input, button {
+  font-size: 1.6rem; 
+  line-height: 3rem;
+}
+
+.main {
+  display: grid;
+  gap: 1.8rem; /* Espaço entre os elementos */
+  align-items: center;
+  justify-items: center;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-content: center; 
+}
+
+div.card {
+  padding: 1.4rem 3.4rem 5rem 3.4rem;
+  background-color: var(--bg-main);
+  max-width: 50rem;
+  /*margin-inline: auto;*/
+  margin: 2rem;
+
+  display: grid;
+  align-items: center;
+
+  box-shadow: 1rem 1rem 1rem rgba(154, 11, 11, 0.1);
+  border-radius: 3rem;
+}
+
+img {
+  width: 35rem;
+  height: 35rem;
+  object-fit: scale-down; /* ou 'contain', dependendo do comportamento desejado */
+}
+
+h1 {
+  margin-top: -5rem;
+  margin-bottom: 0; /* Espaço abaixo do título */
+  font-size: 2.5rem; /* Ajuste de tamanho do título */
+  color: var(--clr-h1); /* Cor do texto */
+}
+
+h2 {
+  color: var(--bg-span) ;
+  font-size: 2.5rem;
+  margin-bottom: 1.6rem; /* Espaço abaixo do subtítulo */
+  padding-top: 1.6rem;
+}
+
+span {
+  color: var(--clr-span);
+  font-weight: 500;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+button {
+  background-color: inherit;
+  color: var(--btn-color) ;
+  border: none;
+  cursor: pointer;
+  font-size: 4rem;
+}
+
+button:hover {
+  color: var(--btn-hover);
+}
+
+#container-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; 
+}
+
+.volume-audio {
+  display: flex;
+  position: absolute;
+  margin-top: 9rem;
+  opacity: .7;
+}
+
+/* Estilo do modal */
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: none; /* Inicialmente escondido */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-wrapper.open {
+  display: flex; /* Mostrar modal quando aberto */
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.modal .close {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal .close img {
+  width: 20px;
+  height: 20px;
+  
+}
+
+.modal img {
+  position: relative;
+  right: -2rem;
+  top: -1rem;
+}
+
+/* Adicionando estilo adicional para responsividade */
+
+@media (max-width: 768px) {
+  .card {
+    padding: 2rem 1rem; /* Reduzir o padding em telas menores */
+    max-width: 90%; /* Ajustar a largura máxima em telas menores */
+  }
+
+  .main {
+    gap: 1rem; /* Reduzir o espaço entre os elementos em telas menores */
+  }
+
+  img {
+    width: 100%; /* Ajustar a largura da imagem em telas menores */
+    height: auto; /* Manter a proporção da imagem */
+    margin-bottom: .8rem;
+    margin-top: .2rem;
+    object-fit: scale-down; /* ou 'contain', dependendo do comportamento desejado */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Ajuste de tamanho do título em telas menores */
+    margin-top: 0; /* Remover margem superior negativa em telas menores */
+    margin-bottom: 0rem; /* Ajuste do espaço abaixo do título */
+  }
+
+  span {
+    font-size: 1.5rem; /* Ajuste de tamanho do subtítulo em telas menores */
+    margin-bottom: 1rem; /* Ajuste do espaço abaixo do subtítulo */
+  }
+
+  .buttons {
+    margin-top: 1rem; /* Ajuste do espaço acima dos botões em telas menores */
+  }
+
+  button {
+    font-size: 3rem; /* Ajuste do tamanho dos botões em telas menores */
+    padding: 0.5rem; /* Ajuste do padding dos botões em telas menores */
+  }
+
+}
+
+
+
+
