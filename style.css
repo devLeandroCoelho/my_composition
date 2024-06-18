@@ -11,7 +11,7 @@
   --bg-main: white;
   --clr-span: darkblue;
   --btn-color: rgba(43, 28, 28, 0.802);
-  --btn-hover:  #a2ade7;
+  --btn-hover: #a2ade7;
   --clr-h1: #333;
   --clr-h2: darkblue;
 }
@@ -22,17 +22,17 @@
 
 body {
   font-family: var(--ft-all);
-  background-color: var(--bg-body) 
+  background-color: var(--bg-body);
 }
 
 body, input, button {
-  font-size: 1.6rem; 
+  font-size: 1.6rem;
   line-height: 3rem;
 }
 
 .main {
   display: grid;
-  gap: 1.8rem; /* Espaço entre os elementos */
+  gap: 1.8rem;
   align-items: center;
   justify-items: center;
 }
@@ -40,40 +40,45 @@ body, input, button {
 .container {
   height: 100vh;
   display: grid;
-  place-content: center; 
+  place-content: center;
 }
 
 div.card {
   padding: 1.4rem 3.4rem 5rem 3.4rem;
   background-color: var(--bg-main);
   max-width: 50rem;
-  /*margin-inline: auto;*/
   margin: 2rem;
-
   display: grid;
   align-items: center;
-
   box-shadow: 1rem 1rem 1rem rgba(154, 11, 11, 0.1);
   border-radius: 3rem;
 }
-
+div.card-music {
+  padding: 1.4rem 3.4rem 5rem 3.4rem;
+  background-color: var(--bg-main);
+  max-width: 50rem;
+  margin: 1rem -2rem;
+  display: grid;
+  align-items: center;
+  border-radius: 2rem;
+}
 img {
   width: 35rem;
   height: 35rem;
-  object-fit: scale-down; /* ou 'contain', dependendo do comportamento desejado */
+  object-fit: scale-down;
 }
 
 h1 {
   margin-top: -5rem;
-  margin-bottom: 0; /* Espaço abaixo do título */
-  font-size: 2.5rem; /* Ajuste de tamanho do título */
-  color: var(--clr-h1); /* Cor do texto */
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  color: var(--clr-h1);
 }
 
 h2 {
-  color: var(--bg-span) ;
+  color: var(--bg-span);
   font-size: 2.5rem;
-  margin-bottom: 1.6rem; /* Espaço abaixo do subtítulo */
+  margin-bottom: 1.6rem;
   padding-top: 1.6rem;
 }
 
@@ -90,7 +95,7 @@ span {
 
 button {
   background-color: inherit;
-  color: var(--btn-color) ;
+  color: var(--btn-color);
   border: none;
   cursor: pointer;
   font-size: 4rem;
@@ -103,7 +108,7 @@ button:hover {
 #container-button {
   width: 100%;
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
 }
 
 .volume-audio {
@@ -122,13 +127,13 @@ button:hover {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  display: none; /* Inicialmente escondido */
+  display: none;
   justify-content: center;
   align-items: center;
 }
 
 .modal-wrapper.open {
-  display: flex; /* Mostrar modal quando aberto */
+  display: flex;
 }
 
 .modal {
@@ -153,7 +158,6 @@ button:hover {
 .modal .close img {
   width: 20px;
   height: 20px;
-  
 }
 
 .modal img {
@@ -162,48 +166,68 @@ button:hover {
   top: -1rem;
 }
 
-/* Adicionando estilo adicional para responsividade */
+/* Estilo adicional para responsividade */
 
 @media (max-width: 768px) {
   .card {
-    padding: 2rem 1rem; /* Reduzir o padding em telas menores */
-    max-width: 90%; /* Ajustar a largura máxima em telas menores */
+    padding: 2rem 1rem;
+    max-width: 90%;
   }
 
   .main {
-    gap: 1rem; /* Reduzir o espaço entre os elementos em telas menores */
+    gap: 1rem;
   }
 
   img {
-    width: 100%; /* Ajustar a largura da imagem em telas menores */
-    height: auto; /* Manter a proporção da imagem */
+    width: 100%;
+    height: auto;
     margin-bottom: .8rem;
     margin-top: .2rem;
-    object-fit: scale-down; /* ou 'contain', dependendo do comportamento desejado */
+    object-fit: scale-down;
   }
 
   h1 {
-    font-size: 1.8rem; /* Ajuste de tamanho do título em telas menores */
-    margin-top: 0; /* Remover margem superior negativa em telas menores */
-    margin-bottom: 0rem; /* Ajuste do espaço abaixo do título */
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 0rem;
   }
 
   span {
-    font-size: 1.5rem; /* Ajuste de tamanho do subtítulo em telas menores */
-    margin-bottom: 1rem; /* Ajuste do espaço abaixo do subtítulo */
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .buttons {
-    margin-top: 1rem; /* Ajuste do espaço acima dos botões em telas menores */
+    margin-top: 1rem;
   }
 
   button {
-    font-size: 3rem; /* Ajuste do tamanho dos botões em telas menores */
-    padding: 0.5rem; /* Ajuste do padding dos botões em telas menores */
+    font-size: 3rem;
+    padding: 0.5rem;
   }
-
+}
+/* Estilos para a lista de músicas */
+.music-list {
+  margin-top: 2rem;
+  max-height: 250px; /* Altura máxima da lista de músicas */
+  overflow-y: auto; /* Adiciona barra de rolagem vertical se necessário */
 }
 
+.music-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 
+.music-list li {
+  cursor: pointer;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.8rem;
+}
 
+.music-list li:hover {
+  background-color: #f0f0f0;
+}
 
+/* Estilos adicionais podem ser ajustados conforme necessário */

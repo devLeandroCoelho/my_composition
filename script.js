@@ -4,11 +4,12 @@ const audio = document.getElementById('music-audio');
 const musicName = document.getElementById('music-name');
 const back = document.getElementById('rewind');
 const playAndPause = document.getElementById('play-pause');
-const advance = document.getElementById('foward');
+const forward = document.getElementById('forward');
 const volumeSlider = document.getElementById('volume-slider');
+const musicList = document.getElementById('music-list');
 
 // Configurações iniciais
-const totalMusic = 11; // Supondo que há 10 músicas no total
+const totalMusic = 11; // Supondo que há 11 músicas no total
 let isPlaying = false; // Estado inicial da música
 let musicNumber = 1; // Número inicial da música
 
@@ -63,7 +64,7 @@ back.addEventListener('click', function() {
 });
 
 // Função para avançar a música
-advance.addEventListener('click', function() {
+forward.addEventListener('click', function() {
   if (musicNumber < totalMusic) {
     musicNumber++;
   } else {
@@ -74,11 +75,9 @@ advance.addEventListener('click', function() {
 
 // Função para atualizar a música
 function updateMusic() {
-  // Atualiza a fonte do áudio e da imagem, e o nome da música conforme a lógica do projeto
   audio.src = `./audios/musica${musicNumber}.mp3`;
   disco.src = `./img/disco${musicNumber}.jpg`;
-  musicName.textContent = musicTitles[musicNumber - 1]; // Atualiza o nome da música
-  // Reinicia a reprodução se a música estava tocando
+  musicName.textContent = musicTitles[musicNumber - 1];
   if (isPlaying) {
     audio.play();
   }
@@ -91,7 +90,6 @@ volumeSlider.addEventListener('input', function() {
 
 // Inicia a primeira música
 updateMusic();
-
 
 // Fechando e Abrindo o Modal
 const Modal = {
@@ -122,3 +120,20 @@ window.addEventListener('keydown', function(event) {
     Modal.close();
   }
 });
+
+// Função para criar a lista de músicas
+function createMusicList() {
+  musicTitles.forEach((title, index) => {
+    const li = document.createElement('li');
+    li.textContent = title;
+    li.addEventListener('click', function() {
+      musicNumber = index + 1;
+      updateMusic();
+      playMusic();
+    });
+    musicList.appendChild(li);
+  });
+}
+
+// Cria a lista de músicas ao carregar a página
+window.addEventListener('load', createMusicList);
