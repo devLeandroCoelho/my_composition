@@ -7,6 +7,7 @@ const playAndPause = document.getElementById('play-pause');
 const forward = document.getElementById('forward');
 const volumeSlider = document.getElementById('volume-slider');
 const musicList = document.getElementById('music-list');
+const progressBar = document.getElementById('progress');
 
 // Configurações iniciais
 const totalMusic = 11; // Supondo que há 11 músicas no total
@@ -44,6 +45,12 @@ function pauseMusic() {
   isPlaying = false;
 }
 
+// Função para atualizar a barra de progresso
+function updateProgressBar() {
+  const progress = (audio.currentTime / audio.duration) * 100;
+  progressBar.style.width = `${progress}%`;
+}
+
 // Função para tocar ou pausar a música
 playAndPause.addEventListener('click', function() {
   if (isPlaying) {
@@ -52,6 +59,9 @@ playAndPause.addEventListener('click', function() {
     playMusic();
   }
 });
+
+// Atualiza a barra de progresso conforme a música é tocada
+audio.addEventListener('timeupdate', updateProgressBar);
 
 // Função para retroceder a música
 back.addEventListener('click', function() {

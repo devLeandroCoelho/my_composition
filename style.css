@@ -42,6 +42,20 @@ body, input, button {
   display: grid;
   place-content: center;
 }
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background-color: #4CAF50;
+  border-radius: 5px;
+}
 
 div.card {
   padding: 1.4rem 3.4rem 5rem 3.4rem;
